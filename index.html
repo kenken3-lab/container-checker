@@ -23,23 +23,19 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;min-height:100%;}
 
-/* ヘッダー */
 .header{background:var(--bg2);border-bottom:1px solid var(--border);padding:13px 16px 11px;position:sticky;top:0;z-index:100;}
 .header-title{font-size:15px;font-weight:700;letter-spacing:.04em;}
 .header-sub{font-size:11px;color:var(--text2);margin-top:2px;}
 
-/* タブ */
 .tabs{display:flex;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:57px;z-index:99;}
 .tab{flex:1;padding:10px 2px;font-size:12px;font-weight:500;color:var(--text2);text-align:center;cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:'Noto Sans JP',sans-serif;transition:color .15s,border-color .15s;}
 .tab.on{color:var(--blue);border-bottom-color:var(--blue);}
 
 .content{padding:14px 14px 48px;}
 .pane{display:none;}.pane.show{display:block;}
-
-/* セクションラベル */
 .sec-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin:0 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border);}
 
-/* ===== 最大積載量 ===== */
+/* 最大積載量 */
 .cap-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:13px;margin-bottom:18px;}
 .cap-input-row{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
 .cap-label-sm{font-size:12px;color:var(--text2);white-space:nowrap;}
@@ -60,8 +56,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .preset-btn{
   background:var(--bg3);border:1px solid var(--border);border-radius:8px;
   padding:7px 3px;text-align:center;cursor:pointer;
-  transition:background .12s,border-color .12s,color .12s;
-  font-family:'Noto Sans JP',sans-serif;
+  transition:background .12s,border-color .12s;font-family:'Noto Sans JP',sans-serif;
 }
 .preset-btn:active{opacity:.7;}
 .preset-btn.on{background:var(--blue-bg);border-color:rgba(77,159,255,0.4);}
@@ -70,18 +65,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .preset-sub{font-size:10px;color:var(--text3);margin-top:1px;}
 .preset-btn.on .preset-sub{color:rgba(77,159,255,0.6);}
 
-/* ===== 入力パネル ===== */
+/* パネル */
 .input-panels{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
-
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.panel-header{
-  display:flex;align-items:center;gap:10px;padding:11px 13px;
-  cursor:pointer;user-select:none;
-}
-.panel-badge{
-  font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;
-  white-space:nowrap;letter-spacing:.05em;
-}
+.panel-header{display:flex;align-items:center;gap:10px;padding:11px 13px;cursor:pointer;user-select:none;}
+.panel-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;letter-spacing:.05em;}
 .badge-blue{background:var(--blue-bg);color:var(--blue);}
 .badge-purple{background:var(--purple-bg);color:var(--purple);}
 .badge-green{background:var(--green-bg);color:var(--green);}
@@ -93,28 +81,29 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .panel-body{border-top:1px solid var(--border);padding:10px 12px;display:none;}
 .panel-body.open{display:block;}
 
-/* 行 */
-.item-row{display:flex;align-items:center;gap:7px;padding:7px 0;border-bottom:1px solid var(--border);}
+/* 入力行 */
+.item-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);}
 .item-row:last-child{border-bottom:none;}
 .item-info{flex:1;min-width:0;}
 .item-name{font-size:13px;font-weight:500;color:var(--text);}
 .item-detail{font-size:11px;color:var(--text2);margin-top:1px;}
 .item-detail b{color:var(--blue);}
-.ctrl{display:flex;align-items:center;gap:6px;flex-shrink:0;}
-.btn-qty{
-  width:36px;height:36px;border-radius:8px;
-  border:1px solid var(--border2);background:var(--bg3);
-  color:var(--text);font-size:20px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .1s,transform .1s;user-select:none;
-  font-family:'Noto Sans JP',sans-serif;
+
+/* 直接入力フィールド */
+.qty-input-wrap{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.qty-input{
+  width:64px;height:38px;
+  background:var(--bg3);border:1.5px solid var(--border2);border-radius:8px;
+  color:var(--text);font-size:18px;font-weight:700;font-family:'DIN Condensed',sans-serif;
+  text-align:center;padding:0 4px;
+  -webkit-appearance:none;appearance:none;
 }
-.btn-qty:active{background:var(--bg);transform:scale(.9);}
-.qty-val{font-size:18px;font-weight:700;color:var(--text);min-width:26px;text-align:center;font-family:'DIN Condensed',sans-serif;}
-.item-sub{font-size:11px;color:var(--text2);min-width:52px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums;}
+.qty-input:focus{outline:none;border-color:var(--blue);}
+.qty-unit{font-size:11px;color:var(--text3);white-space:nowrap;}
+.item-sub{font-size:11px;color:var(--text2);min-width:56px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums;}
 .item-sub.has-val{color:var(--text);}
 
-/* ===== 結果 ===== */
+/* 結果 */
 .result-box{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:15px;margin-bottom:10px;}
 .result-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:11px;}
 .result-total{font-size:38px;font-weight:700;font-family:'DIN Condensed',sans-serif;letter-spacing:.02em;color:var(--text);line-height:1;}
@@ -124,8 +113,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .status-bar{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:9px 11px;border-radius:9px;}
 .s-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .result-remain{font-size:12px;color:var(--text2);margin-top:8px;text-align:right;}
-
-/* 内訳 */
 .breakdown{margin-top:11px;background:var(--bg3);border-radius:9px;padding:9px 11px;}
 .bd-section{margin-bottom:6px;}
 .bd-section-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
@@ -133,7 +120,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .bd-row span:last-child{font-variant-numeric:tabular-nums;color:var(--text);}
 .bd-total-row{display:flex;justify-content:space-between;font-size:13px;font-weight:700;padding:7px 0 2px;border-top:1px solid var(--border2);margin-top:4px;color:var(--text);}
 
-/* リセット */
 .btn-reset{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-size:13px;font-family:'Noto Sans JP',sans-serif;cursor:pointer;margin-top:4px;}
 .btn-reset:active{background:var(--bg2);}
 
@@ -147,7 +133,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 .ref-table td.hi{color:var(--blue);font-weight:700;}
 .ref-table tr:first-child td{border-top:none;}
 
-/* 使い方 */
 .tip-box{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 13px;margin-bottom:12px;}
 .tip-box h3{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:7px;}
 .tip-box p{font-size:12px;color:var(--text2);line-height:1.85;}
@@ -170,10 +155,9 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
 
 <div class="content">
 
-<!-- ===== 積載チェック ===== -->
+<!-- 積載チェック -->
 <div id="pane-check" class="pane show">
 
-  <!-- 最大積載量 -->
   <div class="sec-label" style="margin-top:2px;">最大積載量の設定</div>
   <div class="cap-box">
     <div class="cap-input-row">
@@ -212,25 +196,24 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
     </div>
   </div>
 
-  <!-- 入力パネル（3つ同時使用・合算） -->
-  <div class="sec-label">積載内容の入力（複数同時入力できます）</div>
+  <div class="sec-label">積載内容の入力（複数同時入力・合算）</div>
   <div class="input-panels">
 
-    <!-- パネル①：パレット単位 -->
-    <div class="panel" id="panel0">
+    <!-- ①パレット単位 -->
+    <div class="panel">
       <div class="panel-header" onclick="togglePanel(0)">
         <span class="panel-badge badge-blue">① パレット単位</span>
         <span class="panel-title"></span>
         <span class="panel-total" id="ptotal0">0 kg</span>
-        <span class="panel-arrow" id="parrow0">▼</span>
+        <span class="panel-arrow open" id="parrow0">▼</span>
       </div>
       <div class="panel-body open" id="pbody0">
         <div id="palList"></div>
       </div>
     </div>
 
-    <!-- パネル②：バラ単位 -->
-    <div class="panel" id="panel1">
+    <!-- ②バラ単位 -->
+    <div class="panel">
       <div class="panel-header" onclick="togglePanel(1)">
         <span class="panel-badge badge-purple">② バラ単位（ケース・本）</span>
         <span class="panel-title"></span>
@@ -239,29 +222,27 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
       </div>
       <div class="panel-body" id="pbody1">
         <div id="baraList-beer"></div>
-        <div style="height:1px;background:var(--border);margin:6px 0;"></div>
+        <div style="height:1px;background:var(--border);margin:4px 0;"></div>
         <div id="baraList-taru"></div>
-        <div style="height:1px;background:var(--border);margin:6px 0;"></div>
+        <div style="height:1px;background:var(--border);margin:4px 0;"></div>
         <div id="baraList-gas"></div>
-        <div style="height:1px;background:var(--border);margin:6px 0;"></div>
-        <!-- バラ用パレット -->
+        <div style="height:1px;background:var(--border);margin:4px 0;"></div>
         <div class="item-row">
           <div class="item-info">
             <div class="item-name">パレット</div>
             <div class="item-detail">27.6 kg / 枚</div>
           </div>
-          <div class="ctrl">
-            <button class="btn-qty" onclick="adjB('pal',-1)">−</button>
-            <span class="qty-val" id="bq-pal">0</span>
-            <button class="btn-qty" onclick="adjB('pal',1)">＋</button>
+          <div class="qty-input-wrap">
+            <input class="qty-input" id="bq-pal" type="number" inputmode="numeric" min="0" value="0" oninput="onBaraInput('pal',this.value)">
+            <span class="qty-unit">枚</span>
           </div>
           <div class="item-sub" id="bs-pal">— kg</div>
         </div>
       </div>
     </div>
 
-    <!-- パネル③：パレットのみ -->
-    <div class="panel" id="panel2">
+    <!-- ③パレットのみ -->
+    <div class="panel">
       <div class="panel-header" onclick="togglePanel(2)">
         <span class="panel-badge badge-green">③ パレットのみ</span>
         <span class="panel-title"></span>
@@ -274,17 +255,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
             <div class="item-name">空パレット</div>
             <div class="item-detail">27.6 kg / 枚　大量回収時</div>
           </div>
-          <div class="ctrl">
-            <button class="btn-qty" onclick="adjP(-1)">−</button>
-            <span class="qty-val" id="palOnly-qty">0</span>
-            <button class="btn-qty" onclick="adjP(1)">＋</button>
+          <div class="qty-input-wrap">
+            <input class="qty-input" id="palOnly-qty" type="number" inputmode="numeric" min="0" value="0" oninput="onPalOnlyInput(this.value)">
+            <span class="qty-unit">枚</span>
           </div>
           <div class="item-sub" id="palOnly-sub">— kg</div>
         </div>
       </div>
     </div>
 
-  </div><!-- /input-panels -->
+  </div>
 
   <!-- 結果 -->
   <div class="result-box">
@@ -304,8 +284,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
     <div class="breakdown" id="breakdown" style="display:none;">
       <div id="bdRows"></div>
       <div class="bd-total-row">
-        <span>合計</span>
-        <span id="bdTotal">0 kg</span>
+        <span>合計</span><span id="bdTotal">0 kg</span>
       </div>
     </div>
   </div>
@@ -315,9 +294,9 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
     ※①②③すべての入力値を合算して判定します<br>
     ※製品貨物と混載の場合は伝票重量を別途加算してください
   </p>
-</div><!-- /pane-check -->
+</div>
 
-<!-- ===== 重量早見表 ===== -->
+<!-- 重量早見表 -->
 <div id="pane-ref" class="pane">
   <div class="sec-label" style="margin-top:2px;">1パレットあたりの重量（標準積み）</div>
   <div class="ref-wrap">
@@ -363,26 +342,34 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
   </div>
 </div>
 
-<!-- ===== 使い方 ===== -->
+<!-- 使い方 -->
 <div id="pane-tips" class="pane">
   <div style="margin-top:2px;"></div>
   <div class="tip-box">
-    <h3>最大積載量の設定方法</h3>
+    <h3>数量の入力方法</h3>
     <p>
-      入力欄に直接トン数を入力してください。<br>
+      各項目の入力欄をタップしてキーボードで数字を直接入力してください。<br>
+      入力すると即座に合計重量が更新されます。<br>
+      ゼロに戻す場合は入力欄を全消しして <strong>0</strong> を入力するか、<br>
+      画面下の「全てリセット」ボタンを使ってください。
+    </p>
+  </div>
+  <div class="tip-box">
+    <h3>最大積載量の設定</h3>
+    <p>
+      入力欄にトン数を直接入力してください。<br>
       例：<strong>3.8</strong> と入力 → <strong>3,800 kg</strong> で計算<br>
-      例：<strong>2.95</strong> と入力 → <strong>2,950 kg</strong> で計算<br><br>
-      よく使う積載量はプリセットボタンを押すだけで設定できます。<br>
-      ※プリセットに無い重量は入力欄に直接入力してください。
+      例：<strong>2.95</strong> と入力 → <strong>2,950 kg</strong> で計算<br>
+      プリセットボタンは頻繁に使う積載量をワンタップで設定できます。
     </p>
   </div>
   <div class="tip-box">
     <h3>3つのパネルを同時に使う</h3>
     <p>
-      <strong>① パレット単位</strong>：大ビン2パレット・ガス1パレットなどまとめて積む時<br>
+      <strong>① パレット単位</strong>：大ビン2パレットなどまとめて積む時<br>
       <strong>② バラ単位</strong>：大ビン10ケース・ボンベ2本など端数がある時<br>
       <strong>③ パレットのみ</strong>：空パレット80枚など大量回収の時<br><br>
-      3つのパネルはすべて同時に入力でき、合計重量に自動で合算されます。<br>
+      3つのパネルは同時に入力でき、全て合算して判定します。<br>
       パネルのヘッダーをタップすると開閉できます。
     </p>
   </div>
@@ -396,16 +383,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
     </p>
   </div>
   <div class="tip-box">
-    <h3>ホーム画面への追加</h3>
-    <p>
-      <strong>iPhone（Safari）</strong><br>
-      画面下の共有ボタン →「ホーム画面に追加」→「追加」<br><br>
-      <strong>Android（Chrome）</strong><br>
-      右上「⋮」メニュー →「ホーム画面に追加」<br><br>
-      アイコンをタップするだけで即起動できます。
-    </p>
-  </div>
-  <div class="tip-box">
     <h3>注意事項</h3>
     <p>
       製品貨物と混載する場合は伝票重量を別途合算してください。<br>
@@ -414,7 +391,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans
   </div>
 </div>
 
-</div><!-- /content -->
+</div>
 
 <script>
 const PALLET_KG = 27.6;
@@ -431,33 +408,26 @@ const PAL_ITEMS = [
 
 const BARA_GROUPS = {
   beer:[
-    {k:'dai',name:'大ビン',        unitKg:14.1,  unit:'ケース'},
-    {k:'chu',name:'中ビン',        unitKg:11.4,  unit:'ケース'},
-    {k:'sho',name:'小ビン',        unitKg:13.5,  unit:'ケース'},
+    {k:'dai',name:'大ビン',         unitKg:14.1,  unit:'ケース'},
+    {k:'chu',name:'中ビン',         unitKg:11.4,  unit:'ケース'},
+    {k:'sho',name:'小ビン',         unitKg:13.5,  unit:'ケース'},
   ],
   taru:[
-    {k:'c7', name:'7L容器',        unitKg:3.7,   unit:'本'},
-    {k:'c15',name:'15L容器',       unitKg:5.7,   unit:'本'},
-    {k:'c20',name:'20L容器',       unitKg:6.3,   unit:'本'},
+    {k:'c7', name:'7L容器',         unitKg:3.7,   unit:'本'},
+    {k:'c15',name:'15L容器',        unitKg:5.7,   unit:'本'},
+    {k:'c20',name:'20L容器',        unitKg:6.3,   unit:'本'},
   ],
   gas:[
-    {k:'g5', name:'ガス5kgボンベ', unitKg:7.8,   unit:'本'},
-    {k:'g7', name:'ガス7kgボンベ', unitKg:9.275, unit:'本'},
-    {k:'g10',name:'ガス10kgボンベ',unitKg:12.72, unit:'本'},
+    {k:'g5', name:'ガス5kgボンベ',  unitKg:7.8,   unit:'本'},
+    {k:'g7', name:'ガス7kgボンベ',  unitKg:9.275, unit:'本'},
+    {k:'g10',name:'ガス10kgボンベ', unitKg:12.72, unit:'本'},
   ],
 };
 
-// プリセット値
 const PRESET_VALS = [2.0,3.0,4.0,5.0,2.95,3.8,7.2,7.5];
 
 let cap = 2000;
-let palQty  = {};
-let baraQty = {pal:0};
-let palOnlyQty = 0;
 let panelOpen = [true, false, false];
-
-PAL_ITEMS.forEach(i => palQty[i.k] = 0);
-Object.values(BARA_GROUPS).flat().forEach(i => baraQty[i.k] = 0);
 
 /* ---- パネル開閉 ---- */
 function togglePanel(idx){
@@ -472,8 +442,7 @@ function onCapInput(){
   if(!isNaN(v) && v > 0){
     cap = Math.round(v * 1000);
     document.getElementById('capKgBadge').textContent = cap.toLocaleString() + ' kg';
-    const presets = document.querySelectorAll('.preset-btn');
-    presets.forEach((el,i) => {
+    document.querySelectorAll('.preset-btn').forEach((el,i) => {
       el.classList.toggle('on', Math.abs(PRESET_VALS[i]*1000 - cap) < 2);
     });
     recalc();
@@ -492,18 +461,18 @@ function setPreset(t, el){
 function buildPalList(){
   const el = document.getElementById('palList');
   PAL_ITEMS.forEach(item => {
-    const kg = PALLET_KG + item.perPal * item.unitKg;
+    const kg = (PALLET_KG + item.perPal * item.unitKg).toFixed(1);
     const row = document.createElement('div');
     row.className = 'item-row';
     row.innerHTML = `
       <div class="item-info">
         <div class="item-name">${item.name}</div>
-        <div class="item-detail">${item.perPal}${item.unit}/パレット = <b>${kg.toFixed(1)} kg</b></div>
+        <div class="item-detail">${item.perPal}${item.unit}/パレット = <b>${kg} kg</b></div>
       </div>
-      <div class="ctrl">
-        <button class="btn-qty" onclick="adjPal('${item.k}',-1)">−</button>
-        <span class="qty-val" id="pq-${item.k}">0</span>
-        <button class="btn-qty" onclick="adjPal('${item.k}',1)">＋</button>
+      <div class="qty-input-wrap">
+        <input class="qty-input" id="pq-${item.k}" type="number" inputmode="numeric" min="0" value="0"
+          oninput="recalc()">
+        <span class="qty-unit">枚</span>
       </div>
       <div class="item-sub" id="ps-${item.k}">— kg</div>`;
     el.appendChild(row);
@@ -521,10 +490,10 @@ function buildBaraList(){
           <div class="item-name">${item.name}</div>
           <div class="item-detail">${item.unitKg} kg / ${item.unit}</div>
         </div>
-        <div class="ctrl">
-          <button class="btn-qty" onclick="adjB('${item.k}',-1)">−</button>
-          <span class="qty-val" id="bq-${item.k}">0</span>
-          <button class="btn-qty" onclick="adjB('${item.k}',1)">＋</button>
+        <div class="qty-input-wrap">
+          <input class="qty-input" id="bq-${item.k}" type="number" inputmode="numeric" min="0" value="0"
+            oninput="recalc()">
+          <span class="qty-unit">${item.unit}</span>
         </div>
         <div class="item-sub" id="bs-${item.k}">— kg</div>`;
       el.appendChild(row);
@@ -532,107 +501,119 @@ function buildBaraList(){
   });
 }
 
-/* ---- 操作 ---- */
-function adjPal(k,d){ palQty[k]=Math.max(0,palQty[k]+d); recalc(); }
-function adjB(k,d)  { baraQty[k]=Math.max(0,baraQty[k]+d); recalc(); }
-function adjP(d)    { palOnlyQty=Math.max(0,palOnlyQty+d); recalc(); }
+/* ---- イベント ---- */
+function onBaraInput(k, v){
+  recalc();
+}
+function onPalOnlyInput(v){
+  recalc();
+}
 
+function getVal(id){
+  const el = document.getElementById(id);
+  if(!el) return 0;
+  const v = parseInt(el.value);
+  return isNaN(v) || v < 0 ? 0 : v;
+}
+
+/* ---- リセット ---- */
 function resetAll(){
-  PAL_ITEMS.forEach(i => palQty[i.k]=0);
-  Object.values(BARA_GROUPS).flat().forEach(i => baraQty[i.k]=0);
-  baraQty['pal']=0;
-  palOnlyQty=0;
+  PAL_ITEMS.forEach(i => {
+    const el = document.getElementById('pq-'+i.k);
+    if(el) el.value = 0;
+  });
+  const allBara = [...Object.values(BARA_GROUPS).flat(), {k:'pal'}];
+  allBara.forEach(i => {
+    const el = document.getElementById('bq-'+i.k);
+    if(el) el.value = 0;
+  });
+  const po = document.getElementById('palOnly-qty');
+  if(po) po.value = 0;
   recalc();
 }
 
 /* ---- 計算 ---- */
 function recalc(){
-  let total=0;
-  const sections=[];
+  let total = 0;
+  const sections = [];
 
   // ①パレット単位
-  let p0=0; const lines0=[];
-  PAL_ITEMS.forEach(item=>{
-    const n=palQty[item.k];
-    const sub=n*(PALLET_KG+item.perPal*item.unitKg);
-    p0+=sub;
-    const qe=document.getElementById('pq-'+item.k);
-    const se=document.getElementById('ps-'+item.k);
-    if(qe) qe.textContent=n;
-    if(se){ se.textContent=n>0?sub.toFixed(1)+' kg':'— kg'; se.className='item-sub'+(n>0?' has-val':''); }
-    if(n>0) lines0.push({label:item.name+'×'+n+'パレット',kg:sub});
+  let p0 = 0; const lines0 = [];
+  PAL_ITEMS.forEach(item => {
+    const n = getVal('pq-'+item.k);
+    const sub = n * (PALLET_KG + item.perPal * item.unitKg);
+    p0 += sub;
+    const se = document.getElementById('ps-'+item.k);
+    if(se){ se.textContent = n>0 ? sub.toFixed(1)+' kg' : '— kg'; se.className='item-sub'+(n>0?' has-val':''); }
+    if(n>0) lines0.push({label:item.name+'×'+n+'パレット', kg:sub});
   });
-  total+=p0;
-  const pt0=document.getElementById('ptotal0');
-  pt0.textContent=p0>0?p0.toFixed(1)+' kg':'0 kg';
-  pt0.className='panel-total'+(p0>0?' has-val':'');
-  if(lines0.length>0) sections.push({label:'① パレット単位',lines:lines0});
+  total += p0;
+  const pt0 = document.getElementById('ptotal0');
+  pt0.textContent = p0>0 ? p0.toFixed(1)+' kg' : '0 kg';
+  pt0.className = 'panel-total'+(p0>0?' has-val':'');
+  if(lines0.length>0) sections.push({label:'① パレット単位', lines:lines0});
 
   // ②バラ単位
-  let p1=0; const lines1=[];
-  const allBara=[...Object.values(BARA_GROUPS).flat(),{k:'pal',name:'パレット',unitKg:PALLET_KG,unit:'枚'}];
-  allBara.forEach(item=>{
-    const n=baraQty[item.k];
-    const sub=n*item.unitKg;
-    p1+=sub;
-    const qe=document.getElementById('bq-'+item.k);
-    const se=document.getElementById('bs-'+item.k);
-    if(qe) qe.textContent=n;
-    if(se){ se.textContent=n>0?sub.toFixed(1)+' kg':'— kg'; se.className='item-sub'+(n>0?' has-val':''); }
-    if(n>0) lines1.push({label:item.name+'×'+n,kg:sub});
+  let p1 = 0; const lines1 = [];
+  const allBara = [...Object.values(BARA_GROUPS).flat(), {k:'pal', name:'パレット', unitKg:PALLET_KG, unit:'枚'}];
+  allBara.forEach(item => {
+    const n = getVal('bq-'+item.k);
+    const sub = n * item.unitKg;
+    p1 += sub;
+    const se = document.getElementById('bs-'+item.k);
+    if(se){ se.textContent = n>0 ? sub.toFixed(1)+' kg' : '— kg'; se.className='item-sub'+(n>0?' has-val':''); }
+    if(n>0) lines1.push({label:item.name+'×'+n, kg:sub});
   });
-  total+=p1;
-  const pt1=document.getElementById('ptotal1');
-  pt1.textContent=p1>0?p1.toFixed(1)+' kg':'0 kg';
-  pt1.className='panel-total'+(p1>0?' has-val':'');
-  if(lines1.length>0) sections.push({label:'② バラ単位',lines:lines1});
+  total += p1;
+  const pt1 = document.getElementById('ptotal1');
+  pt1.textContent = p1>0 ? p1.toFixed(1)+' kg' : '0 kg';
+  pt1.className = 'panel-total'+(p1>0?' has-val':'');
+  if(lines1.length>0) sections.push({label:'② バラ単位', lines:lines1});
 
   // ③パレットのみ
-  const sub2=palOnlyQty*PALLET_KG;
-  total+=sub2;
-  document.getElementById('palOnly-qty').textContent=palOnlyQty;
-  const ps2=document.getElementById('palOnly-sub');
-  ps2.textContent=palOnlyQty>0?sub2.toFixed(1)+' kg':'— kg';
-  ps2.className='item-sub'+(palOnlyQty>0?' has-val':'');
-  const pt2=document.getElementById('ptotal2');
-  pt2.textContent=sub2>0?sub2.toFixed(1)+' kg':'0 kg';
-  pt2.className='panel-total'+(sub2>0?' has-val':'');
-  if(palOnlyQty>0) sections.push({label:'③ パレットのみ',lines:[{label:'空パレット×'+palOnlyQty+'枚',kg:sub2}]});
+  const n2 = getVal('palOnly-qty');
+  const sub2 = n2 * PALLET_KG;
+  total += sub2;
+  const ps2 = document.getElementById('palOnly-sub');
+  if(ps2){ ps2.textContent = n2>0 ? sub2.toFixed(1)+' kg' : '— kg'; ps2.className='item-sub'+(n2>0?' has-val':''); }
+  const pt2 = document.getElementById('ptotal2');
+  pt2.textContent = sub2>0 ? sub2.toFixed(1)+' kg' : '0 kg';
+  pt2.className = 'panel-total'+(sub2>0?' has-val':'');
+  if(n2>0) sections.push({label:'③ パレットのみ', lines:[{label:'空パレット×'+n2+'枚', kg:sub2}]});
 
-  // 結果表示
-  const pct=Math.min(100,(total/cap)*100);
-  const rem=cap-total;
+  // 結果
+  const pct = Math.min(100, (total/cap)*100);
+  const rem = cap - total;
 
-  document.getElementById('rTotal').innerHTML=total.toFixed(1)+' <span style="font-size:18px;">kg</span>';
-  document.getElementById('rCapTxt').textContent='最大 '+cap.toLocaleString()+' kg';
-  document.getElementById('rBar').style.width=pct.toFixed(1)+'%';
-  document.getElementById('rRemain').textContent=total>0?'残り余裕：'+rem.toFixed(0)+' kg（'+Math.round(100-pct)+'%）':'';
+  document.getElementById('rTotal').innerHTML = total.toFixed(1)+' <span style="font-size:18px;">kg</span>';
+  document.getElementById('rCapTxt').textContent = '最大 '+cap.toLocaleString()+' kg';
+  document.getElementById('rBar').style.width = pct.toFixed(1)+'%';
+  document.getElementById('rRemain').textContent = total>0 ? '残り余裕：'+rem.toFixed(0)+' kg（'+Math.round(100-pct)+'%）' : '';
 
   let color,bgColor,msg;
-  if(total===0)    {color='var(--text3)'; bgColor='var(--bg3)';        msg='積載なし';}
-  else if(pct<=80) {color='var(--green)'; bgColor='var(--green-bg)';   msg='余裕あり';}
-  else if(pct<=95) {color='var(--amber)'; bgColor='var(--amber-bg)';   msg='注意して積む';}
-  else if(pct<=100){color='var(--orange)';bgColor='var(--orange-bg)';  msg='限界近い — 要確認';}
-  else             {color='var(--red)';   bgColor='var(--red-bg)';     msg='過積載！ '+Math.abs(rem).toFixed(0)+' kg オーバー';}
+  if(total===0)     {color='var(--text3)'; bgColor='var(--bg3)';       msg='積載なし';}
+  else if(pct<=80)  {color='var(--green)'; bgColor='var(--green-bg)';  msg='余裕あり';}
+  else if(pct<=95)  {color='var(--amber)'; bgColor='var(--amber-bg)';  msg='注意して積む';}
+  else if(pct<=100) {color='var(--orange)';bgColor='var(--orange-bg)'; msg='限界近い — 要確認';}
+  else              {color='var(--red)';   bgColor='var(--red-bg)';    msg='過積載！ '+Math.abs(rem).toFixed(0)+' kg オーバー';}
 
-  document.getElementById('rBar').style.background=color;
-  const st=document.getElementById('rStatus');
-  st.style.background=bgColor; st.style.color=color;
-  document.getElementById('rDot').style.background=color;
-  document.getElementById('rMsg').textContent=msg;
+  document.getElementById('rBar').style.background = color;
+  const st = document.getElementById('rStatus');
+  st.style.background = bgColor; st.style.color = color;
+  document.getElementById('rDot').style.background = color;
+  document.getElementById('rMsg').textContent = msg;
 
-  // 内訳
-  const bd=document.getElementById('breakdown');
-  const bdR=document.getElementById('bdRows');
+  const bd = document.getElementById('breakdown');
+  const bdR = document.getElementById('bdRows');
   if(sections.length>0){
     bd.style.display='';
-    bdR.innerHTML=sections.map(sec=>
+    bdR.innerHTML = sections.map(sec =>
       `<div class="bd-section">
         <div class="bd-section-label">${sec.label}</div>
         ${sec.lines.map(l=>`<div class="bd-row"><span>${l.label}</span><span>${l.kg.toFixed(1)} kg</span></div>`).join('')}
       </div>`
     ).join('');
-    document.getElementById('bdTotal').textContent=total.toFixed(1)+' kg';
+    document.getElementById('bdTotal').textContent = total.toFixed(1)+' kg';
   } else {
     bd.style.display='none';
   }
